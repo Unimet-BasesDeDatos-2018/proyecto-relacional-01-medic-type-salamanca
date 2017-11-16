@@ -1,16 +1,17 @@
 
 <% include partials/header %>
 
-<nav class="white" role="navigation">
+  <nav class="white" role="navigation">
     <div class="nav-wrapper container">
-      <a id="logo-container" href="#" class="brand-logo">Logo</a>
+      <a id="logo-container" class="brand-logo">Corporación médica</a>
+      
       <ul class="right hide-on-med-and-down">
-        <li><a href="#">Navbar Link</a></li>
+        <li><a href="/">Inicio</a></li>
+      </ul>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="/VistaMedicos">Volver a Médicos</a></li>
       </ul>
 
-      <ul id="nav-mobile" class="side-nav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
     </div>
   </nav>
@@ -39,30 +40,37 @@
             <th>Tipo de antecedente</th>       
     				<th>Vacuna</th> 
     				<th>Asmático</th>
-    				<th>Intervenciones quirúrgicas</th> 
-            <th>Alérgenos</th>
+    				<th>Intervenciones quirúrgicas</th>
           </tr>
         </thead>
 
         <tbody>
           <tr>
-            <td>PERSONAL</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>4</td>
-            <td>YODO BLABLA</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
+            <td><%= resultado1[0].TipoAntecedente %></td>
+            <td><%= resultado1[0].Vacuna %></td>
+            <td><%= resultado1[0].Asmatico %></td>
+            <td><%= resultado1[0].NroIntervenciones %></td>
           </tr>
         </tbody>
+    </table>
+    <br><br>
+
+    <p><b>Alérgenos</b></p>
+
+    <table class="striped bordered">
+      <thead>
+        <tr>
+          <th>Alérgeno</th>
+        </tr>
+      </thead>
+<% resultado1.forEach(function(res){ %>
+        <tbody>
+        <tr>
+        <td><%= res.Descripcion %></td>
+        </tr>
+
+        </tbody>
+        <%})%>
     </table>
 
     <br><br>
@@ -81,37 +89,43 @@
           </tr>
         </thead>
 
+<% resultado2.forEach(function(res){ %>
         <tbody>
           <tr>
-            <td>PERSONAL</td>
-            <td>Si</td>
-            <td>No</td>
-            <td>4</td>
-            <td>YODO BLABLA</td>
-          </tr>
-          <tr>
-            <td>Alan</td>
-            <td>Jellybean</td>
-            <td>$3.76</td>
-          </tr>
-          <tr>
-            <td>Jonathan</td>
-            <td>Lollipop</td>
-            <td>$7.00</td>
+            <td><%= res.Fecha %></td>
+            <td><%= res.Peso %></td>
+            <td><%= res.Altura %></td>
+            <td><%= res.Sintoma %></td>
+            <td><%= res.Diagnostico %></td>
+            <td><%= res.NombreE %></td>
+            <td><%= res.Instruccion %></td>
+            <td><%= res.NombreM %></td>
+
           </tr>
         </tbody>
+        <%})%>
     </table>
 
     <br><br>
 
 
-
-    <footer class="page-footer blue">
+      <footer class="page-footer blue">
         <div class="container">
           <div class="row">
             <div class="col l6 s12">
               <h5 class="white-text">Company EasyMedic</h5>
               <p class="grey-text text-lighten-4">Somos un equipo de estudiantes universitarios que desarrollaron este proyecto con 3 miembros al verdadero 100%, cualquier contribución es apreciada.</p>
+            </div>
+
+            <div class="col l3 s12">
+              <h5 class="white-text">Integrantes</h5>
+              <ul>
+                <li class="grey-text text-lighten-4">Kevin Salamanca</li>
+                <li class="grey-text text-lighten-4">Maria Virginia Vitali</li>
+                <li class="grey-text text-lighten-4">Jean Rivolta</li>
+              </ul>
+            </div>
+            
           </div>
         </div>
         <div class="footer-copyright">
@@ -119,7 +133,8 @@
           Made by <a class="brown-text text-lighten-3" href="http://materializecss.com">Materialize</a>
           </div>
         </div>
-     </footer>
+      </footer>
+
 
   <!--  Scripts-->
   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>

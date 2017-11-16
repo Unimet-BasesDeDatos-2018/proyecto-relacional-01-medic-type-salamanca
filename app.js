@@ -4,6 +4,7 @@ const path = require('path');
 //Inicializo el servidor express
 var express=require('express');
 var app= express();
+var port = process.env.PORT || 8080;
 
 
 //Set static Path
@@ -31,6 +32,6 @@ require(path.join(process.cwd(), 'app', 'routes'))();
     //  console.log("Error");
     });*/
 //Ejecuto el servidor
-app.listen(8080);
+app.listen(port);
 
 

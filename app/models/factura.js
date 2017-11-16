@@ -2,7 +2,7 @@ module.exports = function(sequelize, DataTypes)
 {
   var path = require('path');
 var Sequelize = require('sequelize');
-var connection = new Sequelize('easymedic', 'root', 'password', {
+var connection = new Sequelize('easymedic', 'root', 'pink88pink', {
 
   dialect : 'mysql',
 
