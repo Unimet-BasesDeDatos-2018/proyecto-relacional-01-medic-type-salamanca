@@ -263,7 +263,7 @@ return res.render('buscarHistoriaC');
 
   resultadoBuscarHistoriaPed : function(req,res){
 
-    connection.query("SELECT antecedente_inf.*, antecedente_pediatrico.*, alergeno.* FROM persona INNER JOIN paciente ON persona.idPersona = paciente.idPersona INNER JOIN informe ON paciente.idPaciente=informe.idPaciente INNER JOIN antecedente_pediatrico ON informe.idInforme=antecedente_pediatrico.idInforme INNER JOIN antecedente_inf ON antecedente_pediatrico.idAntecedente = antecedente_inf.idAntecedente_Inf INNER JOIN rel_antecedente_alergeno ON antecedente_inf.idAntecedente_Inf = rel_antecedente_alergeno.idAntecedente INNER JOIN alergeno ON rel_antecedente_alergeno.idAlergeno = alergeno.idAlergeno WHERE persona.Cedula ="+req.body.cedula)
+    connection.query("SELECT antecedente_inf.*, antecedente_pediatrico.* FROM persona INNER JOIN paciente ON persona.idPersona = paciente.idPersona INNER JOIN informe ON paciente.idPaciente=informe.idPaciente INNER JOIN antecedente_pediatrico ON informe.idInforme=antecedente_pediatrico.idInforme INNER JOIN antecedente_inf ON antecedente_pediatrico.idAntecedente = antecedente_inf.idAntecedente_Inf WHERE persona.Cedula ="+req.body.cedula)
     .then(json1=>{
       var prueba=json1[0];
       console.log(prueba[0]);
