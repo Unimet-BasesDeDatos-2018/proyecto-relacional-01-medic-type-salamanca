@@ -166,20 +166,11 @@ module.exports = {
             }
           }).then(sangre=>{
 
-            connection.query("INSERT INTO paciente (idPersona, idTipoSangre, SeguroSocial, FechaNacimiento, LugarNacimiento, Direccion, EdoCivil) values ("
+            connection.query("INSERT INTO paciente (idPersona, idTipoSangre, SeguroSocial, FechaNacimiento, LugarNacimiento, Direccion, Telefono, EdoCivil) values ("
               +persona.dataValues.idPersona+", "+sangre.dataValues.idTipoSangre+ ", "+req.body.Seguro+", '"+req.body.fechaNac+ "', '"+req.body.lugarNac+"', '"
-              +req.body.direccion+"', '"+req.body.edoCivil+"')").then(json=>{
+              +req.body.direccion+"', "+req.body.tlfn+", '"+req.body.edoCivil+"')").then(json=>{
 
-              var respuesta=json[0];
-              console.log(respuesta);
-
-              connection.query("INSERT INTO telefono_paciente (idPaciente, Telefono_paciente) values ("+respuesta+", "+req.body.tlfn+")").then(final=>{
-
-                res.send("Se ha insertado el paciente");
-              })
-
-
-
+                res.send("Se ha insertado un paciente");
             })
 
             })
