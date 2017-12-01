@@ -93,7 +93,7 @@ module.exports = {
 
       }).then(persona => {
 
-        connection.query("SELECT persona.*, paciente.*, tiposangre.*, telefono_paciente.* FROM persona INNER JOIN paciente ON persona.idPersona = paciente.idPersona INNER JOIN tiposangre ON paciente.idTipoSangre = tiposangre.idTipoSangre INNER JOIN telefono_paciente ON paciente.idPaciente = telefono_paciente.idPaciente WHERE persona.idPersona= "+persona.dataValues.idPersona)
+        connection.query("SELECT persona.*, paciente.*, tiposangre.* FROM persona INNER JOIN paciente ON persona.idPersona = paciente.idPersona INNER JOIN tiposangre ON paciente.idTipoSangre = tiposangre.idTipoSangre WHERE persona.idPersona= "+persona.dataValues.idPersona)
         .then(json =>{
 
       var respuesta=json[0];
