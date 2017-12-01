@@ -1063,7 +1063,7 @@ resultado : respuesta
 
   verTodosLosPacientes : function(req,res){
 
-    connection.query("SELECT persona.*, paciente.*, tiposangre.*, telefono_paciente.* FROM persona INNER JOIN paciente ON persona.idPersona = paciente.idPersona INNER JOIN tiposangre ON paciente.idTipoSangre = tiposangre.idTipoSangre INNER JOIN telefono_paciente ON paciente.idPaciente = telefono_paciente.idPaciente")
+    connection.query("SELECT persona.*, paciente.*, tiposangre.* FROM persona INNER JOIN paciente ON persona.idPersona = paciente.idPersona INNER JOIN tiposangre ON paciente.idTipoSangre = tiposangre.idTipoSangre")
     .then(json=>{
 
       var prueba=json[0];
